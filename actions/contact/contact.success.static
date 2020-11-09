@@ -1,0 +1,8 @@
+<section class="jumbo">
+	<div class="inner">
+		<h2>Message Sent</h2>
+		<p>
+			In a "real" setup we would thank the user for their message here.
+		</p>
+	<!-- .inner --></div>
+<!-- .jumbo --></section>

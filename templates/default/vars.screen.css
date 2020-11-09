@@ -1,0 +1,328 @@
+:root {
+
+	/* fonts */
+		--font-family-default:poppins,arial,helvetica,sans-serif;
+		--font-size-default:0.875em;
+		--line-height-default:1.5;
+		--font-monospace-default:consolas,monospace;
+		
+		--h1-font-size:1.25em;
+		--h1-font-weight:normal;
+		--h1-line-height:1.2;
+		--h1-height:calc(
+			var(--h1-font-size) *
+			var(--h1-line-height)
+		);
+
+	/* Layout */
+	
+	--flow-max-width:50em;
+	--sidebar-width:20em;
+	--inner-gap:1.5em;
+
+	--header-padding-vertical:1em;
+	--header-padding-horizontal:var(--inner-gap);
+	--header-height:calc(
+		var(--h1-height) + 
+		var(--header-padding-vertical) * 2
+	);
+	
+	--footer-padding:1em var(--inner-gap);
+	
+	--mainMenu-gap:1em;
+	
+	--outer-max-width-oneBar:calc(
+		var(--flow-max-width) + 
+		var(--sidebar-width) +
+		var(--sidebar-gap)
+	);
+	--outer-max-width-twoBar:calc(
+		var(--outer-max-width-oneBar) +
+		var(--sidebar-width) +
+		var(--sidebar-gap)
+	);
+	
+	--smallscreen-outer-gap:0.5em;
+	--smallscreen-inner-gap:1em;
+	
+	--section-padding:1.5em;
+	--section-border-width:0;
+	--section-inner-radius:0.5em;
+	--section-outer-radius:calc(
+		var(--section-padding) +
+		var(--section-border-width) +
+		var(--section-section-inner-radius)
+	);
+	
+	--card-max-width:20em;
+	--card-gap-between:0.5em;
+	--card-gap-bottom:calc(var(--card-gap-between) * 2);
+	--card-pricing-max-width:18em;
+	--card-users-max-per-line:3;
+	--card-users-max-width:12em;
+	--card-users-calc-width:calc(
+		var(--card-users-max-width) + 
+		var(--card-gap-between) + 
+		var(--card-gap-between)
+	);
+	--card-users-content-max-width:calc(
+		var(--card-users-calc-width) *
+		var(--card-users-max-per-line)
+	);
+	--card-icon-size:10em;
+	--card-fa-size:8em;
+	
+	--alternating-plate-width:15em;
+	--featurette-image-max-width:40em;
+	
+	--darkModeToggle-hide:150%;
+	--darkModeToggle-show:50%;
+	
+	--tooltip-arrow-border:#0001;
+	--tooltip-border-radius:0.5em;
+	--tooltip-shadow:0 0 0.25em #0003;
+	
+} /* :root */
+
+/*
+	Hue Reference
+	0 = red,        30 = orange,
+	60 = yellow,    90 = chartreuse,
+	120 = green,   150 = spring green,
+	180 = cyan,    210 = azure,
+	240 = blue,    270 = violet,
+	300 = magenta, 330 = rose
+*/
+	
+#toggle_darkMode ~ * {
+
+	/* used by dark mode, do not modify */
+	--luma-multiply:-1;
+	--luma-base:0%;
+
+	/* Colours and Borders */
+
+	--normal-hue:210;
+	--normal-sat:100%;
+	--highlight-hue:220;
+	--highlight-sat:100%;
+	
+	--body-background:hsl(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.3),
+		calc(calc(var(--luma-base) - 97%) * var(--luma-multiply))
+	);
+	--body-color:hsl(
+		var(--normal-hue),
+		var(--normal-sat),
+		calc(calc(var(--luma-base) - 20%) * var(--luma-multiply))
+	);
+	
+	--content-background:hsl(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 95%) * var(--luma-multiply))
+	);
+	--content-color:hsl(
+		var(--normal-hue),
+		var(--normal-sat),
+		calc(calc(var(--luma-base) - 25%) * var(--luma-multiply))
+	);
+	--content-overlay-text-shadow-color:#FFF;
+	
+	--header-background:hsl(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.6),
+		calc(calc(var(--luma-base) - 80%) * var(--luma-multiply))
+	);
+	--header-color:hsl(
+		var(--normal-hue),
+		var(--normal-sat),
+		calc(calc(var(--luma-base) - 10%) * var(--luma-multiply))
+	);
+	--header-box-shadow:0 0.25em 0.25em #0001;
+	
+	--toggle-on-color:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 30%) * var(--luma-multiply))
+	);
+	--toggle-off-color:hsla(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.5
+	);
+	
+	--flyout-background:#FFF;
+	--flyout-color:var(--content-color);
+	
+	--mainMenu-color:var(--header-color);
+	--mainMenu-hover-color:hsl(
+		var(--normal-hue),
+		var(--normal-sat),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply))
+	);
+	--mainMenu-disabled-color:hsla(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.5
+	);
+	
+	--footer-background:var(--header-background);
+	--footer-color:var(--header-color);
+	--footer-box-shadow:none;
+	
+	--controls-a-background:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 40%) * var(--luma-multiply))
+	);
+	--controls-a-color:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 95%) * var(--luma-multiply))
+	);
+	--controls-a-featured-background:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 95%) * var(--luma-multiply))
+	);
+	--controls-a-featured-color:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 40%) * var(--luma-multiply))
+	);
+	
+	--section-alternate-background:hsla(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.2
+	);
+	--section-inner-background:hsla(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		calc(calc(var(--luma-base) - 100%) * var(--luma-multiply)),
+		0.6
+	);
+		
+	--section-border-color:hsla(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.7
+	);
+	--section-box-shadow:inset 0 0.25em 0.25em #0001;
+	
+	--framed-heading-background:hsla(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.1
+	);
+	--framed-border-color:hsl(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 60%) * var(--luma-multiply))
+	);
+	
+	--modal-background:radial-gradient(
+		hsla(
+			var(--normal-hue),
+			var(--normal-sat),
+			calc(calc(var(--luma-base) - 97%) * var(--luma-multiply)),
+			0.8
+		) 20%,
+		hsla(
+			var(--normal-hue),
+			var(--normal-sat),
+			calc(calc(var(--luma-base) - 90%) * var(--luma-multiply)),
+			0.9
+		) 100%
+	);
+	--modal-section-background:hsl(
+		var(--normal-hue),
+		var(--normal-sat),
+		calc(calc(var(--luma-base) - 97%) * var(--luma-multiply))
+	);
+	--modal-heading-background:hsla(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 50%) * var(--luma-multiply)),
+		0.2
+	);
+	--modal-heading-close-color:hsl(
+		var(--normal-hue),
+		calc(var(--normal-sat) * 0.5),
+		calc(calc(var(--luma-base) - 30%) * var(--luma-multiply))
+	);
+	
+	--default-box-shadow:0 0.2em 0.3em 0.2em #0001;
+	--radial-box-shadow:0 0 0.3em 0.2em #000;
+	
+	--darkModeToggle-lightText-display:none;
+	--darkModeToggle-darkText-display:inline;
+	
+	--darkModeToggle-lightIcon-color:#EE0;
+	--darkModeToggle-lightIcon-shadow:
+			0 0 1px #F00,
+			0 0 3px #F80,
+			0 0 0.1em #F80,
+			0 0 0.2em #F80,
+			0 0 0.3em #F80,
+			0 0 0.35em #FF0;
+	--darkModeToggle-darkIcon-color:#F0F8FF;
+	--darkModeToggle-darkIcon-shadow:
+		-0.1em 0.1em 0.2em #ACE6,
+		-0.1em -0.1em 0.2em #ACE6,
+		0.1em -0.1em 0.2em #ACE6,
+		0.1em 0.1em 0.2em #ACE6;
+		
+	--tooltip-background:hsl(
+			var(--normal-hue),
+			var(--normal-sat),
+			calc(calc(var(--luma-base) - 92.5%) * var(--luma-multiply))
+		);
+	--tooltip-color:#000;
+		
+		
+} /* light mode colors */
+
+#toggle_darkMode:checked ~ * { /* dark mode colors */
+
+	--luma-multiply:1;
+	--luma-base:100%;
+	
+	--controls-a-background:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		20%
+	);
+	--controls-a-color:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		90%
+	);
+	--controls-a-featured-background:hsl(
+		var(--highlight-hue),
+		var(--highlight-sat),
+		40%
+	);
+	--controls-a-featured-color:var(--controls-a-color);
+	
+	--default-box-shadow:0 0.2em 0.3em 0.2em #0004;
+	
+	--darkModeToggle-hide:50%;
+	--darkModeToggle-show:150%;
+	
+	--tooltip-background:hsl(
+			var(--normal-hue),
+			var(--normal-sat),
+			calc(calc(var(--luma-base) - 90%) * var(--luma-multiply))
+		);
+	--tooltip-color:#FFF;
+
+	
+} /* dark mode colors */

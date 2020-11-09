@@ -1,0 +1,2 @@
+RewriteEngine On
+RewriteRule !(^(images|downloads))|(\.(gif|jpg|png|css|js|html|txt|ico|zip|rar|pdf|xml|mp3|mp4|mpg|flv|swf|mkv|ogg|avi|woff|woff2|svg|eot|ttf|json|webmanifest)$) index.php
