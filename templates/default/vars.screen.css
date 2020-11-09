@@ -48,7 +48,8 @@
 	--section-padding:1.5em;
 	--section-border-width:0;
 	--section-inner-radius:0.5em;
-	--section-outer-radius:calc(
+	--section-modal-radius:0.75em;
+	--section-outer-radius:calc( 
 		var(--section-padding) +
 		var(--section-border-width) +
 		var(--section-section-inner-radius)

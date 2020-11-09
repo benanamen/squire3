@@ -852,15 +852,16 @@ main .splash {
 	color:var(--modal-heading-close-color);
 }
 
+.modalContent {
+	padding:var(--inner-gap);
+}
+
+
 .modal h2 {
 	padding:0.4em 2.4em 0.4em 0.6em;
 	font-size:1.25em;
 	background:var(--modal-heading-background);
 	border-bottom:1px solid var(--framed-border-color);
-}
-
-.modalContent {
-	padding:var(--inner-gap);
 }
 
 #contact fieldset {
@@ -933,6 +934,20 @@ main > section:last-child {
 	font-style:italic;
 }
 
+/* prevent selections */
+#top > a,
+#top > label,
+#mainMenu,
+button,
+form {
+	-webkit-touch-callout:none;
+	-webkit-user-select:none;
+	-khtml-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none;
+}
+
 @media (max-width:94em) {
 	.mainGroup {
 		align-items:flex-start;
@@ -948,4 +963,124 @@ main > section:last-child {
 	#extras1 {
 		order:2;
 	}
-}
+} /* max-width:94em */
+
+@media (max-width:35em) {
+	#top h1 {
+		flex:1 0 auto;
+	}
+	.mainMenuOpen {
+		display:block;
+		margin-right:0.5em;
+		font-size:1.5em;
+		line-height:1em;
+		text-decoration:none;
+	}
+	.mainMenuOpen:before {
+		display:block;
+		content:"\F0C9";
+	}
+	#mainMenu,
+	#mainMenu.modalClose {
+		top:0;
+		left:0;
+		width:100%;
+		height:100%;
+	}
+	#mainMenu {
+		position:fixed;
+		left:-100vw;
+		z-index:999;
+		padding:1em;
+		background:var(--modal-background);
+		color:var(--body-color);
+		opacity:0;
+		transition:opacity 0.5s, left 0s 0.5s;
+	}
+	#mainMenu:target {
+		left:0;
+		opacity:1;
+		transition:opacity 0.5s, left 0s;
+	}
+	#mainMenu .modalClose {
+		display:block;
+		text-decoration:none;
+	}
+	#mainMenu > div {
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		min-height:100%;
+	}
+	#mainMenu nav {
+		position:relative;
+		background:var(--modal-section-background);
+		border:1px solid var(--framed-border-color);
+		border-radius:var(--section-modal-radius);
+		box-shadow:var(--default-box-shadow);
+		transform:scale(0);
+		transition:transform 0.5s;
+	}
+	#mainMenu:target nav {
+		transform:scale(1);
+	}
+	#mainMenu nav .modalClose {
+		position:absolute;
+		top:0;
+		right:0.325em;
+		font-size:2em;
+		line-height:1.25em;
+	}
+	#mainMenu > div .modalClose:after {
+		content:"\F00D";
+		color:var(--modal-heading-close-color);
+	}
+	#mainMenu nav:before {
+		content:"Main Menu";
+		display:block;
+		padding:0.25em 2.4em 0.25em 0.8em;
+		font-size:1.25em;
+		font-weight:bold;
+		text-align:left;
+		border-bottom:1px solid var(--framed-border-color);
+		background:var(--modal-heading-background);
+		color:var(--modal-heading-color);
+	}
+	#mainMenu ul {
+		display:flex;
+		flex-direction:row;
+		flex-wrap:wrap;
+		padding:0.25em 0.25em 0 0;
+	}
+	#mainMenu li {
+		flex:1 0 50%;
+		padding:0 0 0.25em 0.25em;
+		text-align:center;
+	}
+	#mainMenu li em,
+	#mainMenu li a {
+		display:block;
+		padding:0.5em;
+		background:var(--modal-heading-background);
+	}
+	#mainMenu li em {
+		background:var(--modal-section-background);
+	}
+	#mainMenu li a:focus,
+	#mainMenu li a:hover {
+		transform:scale(1);
+		background:var(--header-background);
+	}
+	#mainMenu li:last-child:nth-child(even) a {
+		border-radius:0 0 var(--section-inner-radius) 0;
+	}
+	#mainMenu li:nth-last-of-type(2):nth-child(odd) a {
+		border-radius:0 0 0 var(--section-inner-radius);
+	}
+	#mainMenu li:last-child:nth-child(odd) {
+		width:100%;
+	}
+	#mainMenu li:last-child:nth-child(odd) a {
+		border-radius:0 0 var(--section-inner-radius) var(--section-inner-radius);
+	}
+} /* max-width:35em */

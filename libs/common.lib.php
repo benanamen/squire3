@@ -143,7 +143,7 @@ final class Settings {
 		return false;
 	} // Settings::getValue
 	
-	public function set($value, $name, $section = false) {
+	public static function set($value, $name, $section = false) {
 		if ($section) {
 			if (!array_key_exists($section, self::$publicData)) {
 				self::$publicData[$section] = [ $name => $value ];
