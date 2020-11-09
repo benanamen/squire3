@@ -121,7 +121,7 @@ final class Settings {
 		}
 	} // Settings::loadFromIni
 	
-	public function get($name, $section = false) {
+	public static function get($name, $section = false) {
 		if ($section) {
 			if (array_key_exists($section, self::$privateData)) {
 				if (
